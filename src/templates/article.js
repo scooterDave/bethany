@@ -1,86 +1,51 @@
+import { graphql } from "gatsby"
 import React from "react"
 import PropTypes from "prop-types"
-import { graphql } from 'gatsby'
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
-// import parse from 'html-react-parser'
-import reactHtmlParser from 'react-html-parser';
-
-
-
 import Layout from "../components/layout"
+import { GatsbyImage } from "gatsby-plugin-image"
+// import parse from 'html-react-parser'
+// import reactHtmlParser from "react-html-parser"
+import ReactHtmlParser from "react-html-parser"
 
 const Article = ({ data }) => {
-    const post = data.nodeArticle
-
-    return (
-      <Layout>
-        <h1>{post.title}</h1>
-        <p>
-          Open a PDF file
-          <a href={post.relationships.field_pdf_file.localFile.publicURL}>
-            example
-          </a>
-          .
-        </p>
-        {/* <div dangerouslySetInnerHTML={{ __html: post.body.processed }} */}
-        <div >{ reactHtmlParser(post.body.processed) }</div>
-        
-      </Layout>
-    )
-
+  const post = data.nodeArticle
+  
+  return (
+    <Layout>
+      {/* console.log(post) */}
+      <h1>{post.title}</h1>
+      {/* <div dangerouslySetInnerHTML={{ __html: post.body.processed }} */}
+      {data.allImageSharp.nodes.map(image => (
+        <GatsbyImage image={image.gatsbyImageData} alt={``} />
+      ))}
+      <div>{ReactHtmlParser(post.body.processed)}</div>
+    </Layout>
+  )
 }
 
 Article.propTypes = {
   data: PropTypes.object.isRequired,
 }
 
+export default Article
+
 export const query = graphql`
-    query($ArticleId: String!) {
-        nodeArticle(id: { eq: $ArticleId }) {
-            id
+  query ($ArticleId: String!) {
+    nodeArticle(id: { eq: $ArticleId }) {
       title
+      id
+      path {
+        alias
+      }
       body {
         processed
       }
-      
-      relationships {
-        field_pdf_file {
-          localFile {
-            publicURL
-            childrenImageSharp {
-              children {
-                ... on File {
-                  id
-                  name
-                  absolutePath
-                  url
-                  publicURL
-                }
-              }
-            }
-            childImageSharp {
-              gatsbyImageData
-              fixed {
-                base64
-                tracedSVG
-                aspectRatio
-                srcWebp
-                srcSetWebp
-                originalName
-              }
-              fluid {
-                base64
-                tracedSVG
-                srcWebp
-                srcSetWebp
-                originalImg
-                originalName
-              }
-            }
-          }
-        }
-      }
-        }
     }
+    allImageSharp {
+      nodes {
+        id
+        gatsbyImageData(layout: CONSTRAINED, width: 200)
+      }
+    }
+  }
 `
-export default Article;

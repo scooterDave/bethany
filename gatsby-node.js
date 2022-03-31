@@ -13,16 +13,15 @@
     }
   }
 } 
-  `);
+  `)
 
-  articles.data.allNodeArticle.nodes.map(articleData => 
-      createPage({
-        path: articleData.path.alias,
-        component: path.resolve(`src/templates/article.js`),
-        context: {
-          ArticleId: articleData.id,
-        },
-      })
-    );
-  
+  articles.data.allNodeArticle.nodes.map(articleData =>
+    createPage({
+      path: articleData.path.alias,
+      component: path.resolve(`./src/templates/article.js`),
+      context: {
+        ArticleId: articleData.id,
+      },
+    })
+  )
 }
