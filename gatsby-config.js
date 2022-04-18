@@ -41,6 +41,7 @@ module.exports = {
         apiBase: `jsonapi`, // optional, defaults to `jsonapi`
       },
     },
+    `gatsby-plugin-mantine`,
     
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline

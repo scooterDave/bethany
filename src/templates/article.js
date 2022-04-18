@@ -3,9 +3,8 @@ import React from "react"
 // import PropTypes from "prop-types"
 import Layout from "../components/layout"
 import { GatsbyImage } from "gatsby-plugin-image"
-// import parse from 'html-react-parser'
-// import reactHtmlParser from "react-html-parser"
 import ReactHtmlParser from "react-html-parser"
+import { ParallaxProvider } from "react-scroll-parallax"
 
 const ArticleTemplate = ({ data }) => {
   const article = data.allNodeArticle.edges[0].node
@@ -46,26 +45,18 @@ const ArticleTemplate = ({ data }) => {
       return undefined
     }
   })
+    
+
   let article_component = (
-    <Layout>
-      <h1>{article.title}</h1>
-      {/* {image} */}
-      {article_body_elements}
-    </Layout>
+    <ParallaxProvider y={["0px", "-250px"]}>
+      <Layout>
+        <h1>{article.title}</h1>
+        {/* {image} */}
+        {article_body_elements}
+      </Layout>
+    </ParallaxProvider>
   )
   return article_component
-  // return (
-  //   <Layout>
-  //     {/* console.log(post) */}
-  //     <h1>{post.title}</h1>
-  //     <div>{article_body_elements}</div>
-  //     {/* <div dangerouslySetInnerHTML={{ __html: post.body.processed }} */}
-  //     {/* {data.allImageSharp.nodes.map(image => (
-  //       <GatsbyImage image={image.gatsbyImageData} alt={``} />
-  //     ))} */}
-  //     {/* <div>{ReactHtmlParser(post.body.processed)}</div> */}
-  //   </Layout>
-  // )
 }
 
 // article.propTypes = {
@@ -73,7 +64,6 @@ const ArticleTemplate = ({ data }) => {
 // }
 
 export default ArticleTemplate
-
 export const query = graphql`
   query ($ArticleId: String!) {
     allNodeArticle(filter: { id: { eq: $ArticleId } }) {
