@@ -8,6 +8,9 @@ module.exports = {
     author: `@gatsbyjs`,
     siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
   },
+  flags: {
+    DEV_SSR: false,
+  },
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
@@ -42,7 +45,7 @@ module.exports = {
       },
     },
     `gatsby-plugin-mantine`,
-    
+
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

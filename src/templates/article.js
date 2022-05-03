@@ -4,7 +4,8 @@ import React from "react"
 import Layout from "../components/layout"
 import { GatsbyImage } from "gatsby-plugin-image"
 import ReactHtmlParser from "react-html-parser"
-import { ParallaxProvider } from "react-scroll-parallax"
+import { Parallax, ParallaxProvider } from "react-scroll-parallax"
+
 
 const ArticleTemplate = ({ data }) => {
   const article = data.allNodeArticle.edges[0].node
@@ -48,12 +49,14 @@ const ArticleTemplate = ({ data }) => {
     
 
   let article_component = (
-    <ParallaxProvider y={["0px", "-250px"]}>
-      <Layout>
-        <h1>{article.title}</h1>
-        {/* {image} */}
-        {article_body_elements}
-      </Layout>
+    <ParallaxProvider>
+      <Parallax speed={-10}>
+        <Layout>
+          <h1>{article.title}</h1>
+          {/* {image} */}
+          {article_body_elements}
+        </Layout>
+      </Parallax>
     </ParallaxProvider>
   )
   return article_component

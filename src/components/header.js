@@ -3,7 +3,6 @@ import PropTypes from "prop-types"
 import { Link } from "gatsby"
 import { Parallax } from "react-scroll-parallax"
 
-
 const Header = ({ siteTitle }) => (
   <header
     style={{
@@ -11,7 +10,7 @@ const Header = ({ siteTitle }) => (
       marginBottom: `1.45rem`,
     }}
   >
-    <Parallax style={{ background: "blue" }} className="test">
+    <Parallax speed={-3} >
       <div
         style={{
           margin: `0 auto`,

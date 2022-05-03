@@ -24,4 +24,28 @@ exports.createPages = async ({ actions, graphql }) => {
       },
     })
   )
+
+  const bulletins = await graphql(`
+    {
+      allNodeBulletin {
+        nodes {
+          id
+          title
+          path {
+            alias
+          }
+        }
+      }
+    }
+  `)
+
+  bulletins.data.allNodeBulletin.nodes.map(bulletinData =>
+    createPage({
+      path: bulletinData.path.alias,
+      component: path.resolve(`./src/templates/bulletin.js`),
+      context: {
+        BulletinId: bulletinData.id,
+      },
+    })
+  )
 }
