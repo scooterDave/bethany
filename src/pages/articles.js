@@ -5,7 +5,7 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import ArticlePreview from "../components/articlePreview"
-
+import { StyledArticles } from "../components/styles/Articles.styled"
 const Articles = ({ data }) => {
   const articles = data.allNodeArticle.edges
 
@@ -14,18 +14,18 @@ const Articles = ({ data }) => {
       <SEO title="Articles" />
       <h1>Articles</h1>
       {articles.map(article => (
-        <ArticlePreview
-          key={article.node.id}
-          title={article.node.title}
-          path={article.node.path.alias}
-          //   image={article.relationships.field_image.localFile.publicURL}
-          //   alt={article.field_image.alt}
-          summary={
-            article.node.body.summary
-              ? article.node.body.summary
-              : article.node.body.processed.substring(0, 300)
-          }
-        />
+        <StyledArticles bg='red'>
+          <ArticlePreview
+            key={article.node.id}
+            title={article.node.title}
+            path={article.node.path.alias}
+            summary={
+              article.node.body.summary
+                ? article.node.body.summary
+                : article.node.body.processed.substring(0, 300)
+            }
+          />
+        </StyledArticles>
       ))}
     </Layout>
   )
