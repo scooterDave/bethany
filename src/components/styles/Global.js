@@ -9,7 +9,8 @@ const GlobalStyles = createGlobalStyle`
   overflow-y: scroll;
 }
 body {
-  margin: 0;
+  background-color: ${({ theme }) => theme.colors.body};
+    margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: hsla(0, 0%, 0%, 0.8);

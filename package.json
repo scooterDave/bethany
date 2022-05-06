@@ -7,6 +7,7 @@
   "dependencies": {
     "@mantine/core": "^4.1.3",
     "@mantine/hooks": "^4.1.3",
+    "@raygesualdo/gatsby-plugin-babel-styled-components": "^1.0.1",
     "gatsby": "^2.19.38",
     "gatsby-plugin-gatsby-cloud": "^1.0.2",
     "gatsby-plugin-image": "^0.7.2",
@@ -29,7 +30,8 @@
     "tabler-icons-react": "^1.44.0"
   },
   "devDependencies": {
-    "prettier": "^2.5.1"
+    "prettier": "^2.5.1",
+    "tailwindcss": "^3.0.24"
   },
   "keywords": [
     "gatsby"

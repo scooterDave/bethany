@@ -10,8 +10,17 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import Header from "./header"
 //  import "./layout.css"
+import { ThemeProvider } from 'styled-components'
 import GlobalStyles from "./styles/Global"
 import { Container } from './styles/Container.styled.js'
+
+const theme = {
+  colors: {
+    header: "#ccc",
+    body: "#fff",
+  },
+  mobile: "768px",
+}
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -25,8 +34,9 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <>
-      <GlobalStyles />
+    <ThemeProvider theme={theme}>
+      <>
+        <GlobalStyles />
         <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
         <div
           style={{
@@ -48,7 +58,8 @@ const Layout = ({ children }) => {
             <a href="https://www.gatsbyjs.com">Gatsby</a>
           </footer>
         </div>
-    </>
+      </>
+    </ThemeProvider>
   )
 }
 

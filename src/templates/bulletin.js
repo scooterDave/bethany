@@ -1,14 +1,11 @@
 import { graphql } from "gatsby"
 import React from "react"
 import Layout from "../components/layout"
-import { Parallax, ParallaxProvider } from "react-scroll-parallax"
 
 
 const BulletinTemplate = ({ data }) => {
   const bulletin = data.allNodeBulletin.nodes[0]
   let bulletin_component = (
-    <ParallaxProvider>
-      <Parallax speed={-10}>
         <Layout>
           <h1>{bulletin.title}</h1>
           <p>
@@ -21,8 +18,6 @@ const BulletinTemplate = ({ data }) => {
             </a>
           </p>
         </Layout>
-      </Parallax>
-    </ParallaxProvider>
   )
   return bulletin_component
 }

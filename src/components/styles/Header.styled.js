@@ -1,7 +1,10 @@
+// import { formatFromFilename } from "gatsby-plugin-image/dist/src/image-utils";
 import styled from "styled-components";
 
+
+
 export const StyledHeader = styled.header`
-    background-color: rebeccapurple;
+    background-color: ${({ theme }) => theme.colors.header};
     margin-bottom: 1.45rem;
       
     div {
