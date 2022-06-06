@@ -8,7 +8,7 @@ const BulletinTemplate = ({ data }) => {
   let bulletin_component = (
         <Layout>
           <h1>{bulletin.title}</h1>
-          <p>
+          <div>
             <a
               href={
                 bulletin.relationships.field_bulletin[0].localFile.publicURL
@@ -16,7 +16,7 @@ const BulletinTemplate = ({ data }) => {
             >
               {bulletin.relationships.field_bulletin[0].filename}
             </a>
-          </p>
+          </div>
         </Layout>
   )
   return bulletin_component

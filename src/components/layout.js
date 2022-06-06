@@ -11,7 +11,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import Header from "./header"
 //  import "./layout.css"
 import { ThemeProvider } from 'styled-components'
-import GlobalStyles from "./styles/Global"
+import { GlobalStyles } from 'twin.macro'
 import { Container } from './styles/Container.styled.js'
 
 const theme = {
@@ -38,13 +38,14 @@ const Layout = ({ children }) => {
       <>
         <GlobalStyles />
         <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-        <div
+        {/* <div
           style={{
             margin: `0 auto`,
-            maxWidth: 960,
-            padding: `0 1.0875rem 1.45rem`,
+            width: `100vw`,
+            height: `100vh`,
+            padding: `0`,
           }}
-        >
+        > */}
           <Container>
             <main>{children}</main>
           </Container>
@@ -57,7 +58,7 @@ const Layout = ({ children }) => {
             {` `}
             <a href="https://www.gatsbyjs.com">Gatsby</a>
           </footer>
-        </div>
+        {/* </div> */}
       </>
     </ThemeProvider>
   )

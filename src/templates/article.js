@@ -5,11 +5,8 @@ import Layout from "../components/layout"
 import { GatsbyImage } from "gatsby-plugin-image"
 import ReactHtmlParser from "react-html-parser"
 
-
 const ArticleTemplate = ({ data }) => {
   const article = data.allNodeArticle.edges[0].node
-
-  //  let image = (<React.Fragment/>);
 
   let article_body_elements = new ReactHtmlParser(article.body.processed, {
     transform: function transform(node) {
@@ -37,6 +34,7 @@ const ArticleTemplate = ({ data }) => {
                 }
                 alt={alt}
                 className={cName}
+                as={"picture"}
               />
             )
           }
@@ -48,11 +46,13 @@ const ArticleTemplate = ({ data }) => {
     
 
   let article_component = (
-        <Layout>
-          <h1>{article.title}</h1>
-          {/* {image} */}
-          {article_body_elements}
-        </Layout>
+    <Layout>
+      <h1>
+        {article.title}
+      </h1>
+      {/* {image} */}
+      {article_body_elements}
+    </Layout>
   )
   return article_component
 }
@@ -78,7 +78,7 @@ export const query = graphql`
         }
       }
     }
-    allFileFile {
+    allFileFile(filter: { filename: { regex: "/.jpg$/" } }) {
       edges {
         node {
           id

@@ -3,7 +3,7 @@ require("dotenv").config({
 })
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
+    title: `BPC`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `@gatsbyjs`,
     siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
@@ -13,7 +13,14 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-    '@raygesualdo/gatsby-plugin-babel-styled-components',
+    `@raygesualdo/gatsby-plugin-babel-styled-components`,
+    {
+      resolve: `gatsby-plugin-postcss`,
+      options: {
+        // Accepts all options defined by `gatsby-plugin-postcss` plugin.
+      },
+    },
+    `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -46,6 +53,7 @@ module.exports = {
       },
     },
     `gatsby-plugin-mantine`,
+    `babel-plugin-twin`,
 
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline

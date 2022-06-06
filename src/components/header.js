@@ -5,7 +5,7 @@ import { StyledHeader } from "./styles/Header.styled"
 
 const Header = ({ siteTitle }) => (
   <StyledHeader>
-      <div>
+      <div >
         <h1>
           <Link
             to="/"

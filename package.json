@@ -5,31 +5,53 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "@emotion/core": "^11.0.0",
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
+    "@iterable/web-sdk": "^0.2.0",
     "@mantine/core": "^4.1.3",
     "@mantine/hooks": "^4.1.3",
     "@raygesualdo/gatsby-plugin-babel-styled-components": "^1.0.1",
+    "autoprefixer": "^10.4.7",
+    "core-js": "^3.22.7",
     "gatsby": "^2.19.38",
     "gatsby-plugin-gatsby-cloud": "^1.0.2",
     "gatsby-plugin-image": "^0.7.2",
     "gatsby-plugin-manifest": "^2.6.1",
     "gatsby-plugin-mantine": "^4.0.0",
     "gatsby-plugin-offline": "^3.10.2",
+    "gatsby-plugin-postcss": "^3.7.0",
     "gatsby-plugin-react-helmet": "^3.10.0",
     "gatsby-plugin-sharp": "^2.14.4",
+    "gatsby-plugin-styled-components": "^3.10.0",
     "gatsby-source-drupal": "^3.13.1",
     "gatsby-source-filesystem": "^2.11.1",
     "gatsby-transformer-sharp": "^2.12.1",
     "html-react-parser": "^1.4.9",
+    "postcss": "^8.4.13",
+    "postcss-import": "^14.1.0",
+    "postcss-preset-env": "^7.5.0",
     "prop-types": "^15.8.0",
-    "react": "^17.0.1",
+    "react": "^16.8.0",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
     "react-html-parser": "^2.0.2",
     "react-scroll-parallax": "^3.0.5",
     "styled-components": "^5.3.5",
-    "tabler-icons-react": "^1.44.0"
+    "tabler-icons-react": "^1.44.0",
+    "tailwind.macro": "^0.5.10",
+    "twin.macro": "^2.8.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.17.10",
+    "@babel/plugin-proposal-decorators": "^7.17.12",
+    "@tailwindcss/aspect-ratio": "^0.4.0",
+    "@tailwindcss/forms": "^0.4.0-alpha.2",
+    "@tailwindcss/line-clamp": "^0.4.0",
+    "@tailwindcss/typography": "^0.5.0-alpha.3",
+    "babel-plugin-macros": "^3.1.0",
+    "babel-plugin-twin": "^1.0.2",
+    "babel-preset-gatsby": "^2.14.0",
     "prettier": "^2.5.1",
     "tailwindcss": "^3.0.24"
   },
@@ -52,5 +74,11 @@
   },
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
+  },
+  "babelMacros": {
+    "twin": {
+      "config": "./src/tailwind.config.js",
+      "preset": "styled-components"
+    }
   }
 }

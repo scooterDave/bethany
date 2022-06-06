@@ -24,8 +24,12 @@ const Articles = ({ data }) => {
               ? article.node.body.summary
               : article.node.body.processed.substring(0, 300)
           }
+          image={article.node.relationships.field_image.localFile.publicURL}
+          alt={article.node.field_image.alt}
         />
       ))}
+      
+      
     </Layout>
   )
 }
@@ -46,7 +50,18 @@ export const data = graphql`
             alias
           }
           body {
+            summary
             processed
+          }
+          relationships {
+            field_image {
+              localFile {
+                publicURL
+              }
+            }
+          }
+          field_image {
+            alt
           }
         }
       }

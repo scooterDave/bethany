@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import tw from "twin.macro"
 
 // export const StyledCard = styled.div`
 //   display: flex;
@@ -10,23 +11,25 @@ import styled from "styled-components"
 //   padding: 60px;
 // `
 export const StyledArticles = styled.div`
-    display: flex;
-    align-items: center;
-    background-color: #fff;
-    border-radius: 15px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-    margin: 40px 0;
-    padding: 60px;
-    flex-direction: ${({layout}) => layout || 'row-reverse'};
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  &:nth-child(even) {
+    ${tw`bg-red-300`}
+  }
+  ${tw`bg-blue-300  space-y-8 `}
+  flex-direction: ${({ layout }) => layout || "row-reverse"};
 
-    img {
-        width: 80%;
-    }
+  &img {
+    ${tw`object-cover min-w-full  md:h-auto mx-auto rounded-br-xl rounded-bl-xl md:rounded-none `}
+  }
+  & > div {
+    flex: 1;
+    ${tw`items-center justify-center`}
+  }
 
-    & > div {
-        flex: 1;
-    }
-    @media (max-width: ${({ theme }) => theme.mobile}) {
-        flex-direction: column;
-    }
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    flex-direction: column;
+  }
 `

@@ -1,0 +1,30 @@
+{
+  "plugins": [
+    [
+      "@babel/plugin-proposal-decorators",
+      {
+        "legacy": true
+      }
+    ]
+  ],
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "useBuiltIns": "usage",
+        "corejs": 2
+      }
+    ],
+    [
+      "babel-preset-gatsby",
+      {
+        "targets": {
+          "browsers": [
+            ">0.25%",
+            "not dead"
+          ]
+        }
+      }
+    ]
+  ],
+}
