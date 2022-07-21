@@ -1,9 +1,8 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { graphql } from "gatsby"
-
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 import ArticlePreview from "../components/articlePreview"
 
 const Articles = ({ data }) => {
@@ -11,7 +10,7 @@ const Articles = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title="Articles" />
+      <Seo title="Articles" />
       <h1>Articles</h1>
       {articles.map(article => (
         <ArticlePreview
@@ -26,16 +25,21 @@ const Articles = ({ data }) => {
           }
           image={article.node.relationships.field_image.localFile.publicURL}
           alt={article.node.field_image.alt}
+          key={article.node.id}
         />
       ))}
-      
-      
     </Layout>
   )
 }
 
 Articles.propTypes = {
   data: PropTypes.object.isRequired,
+   title: PropTypes.string.isRequired,
+  path: PropTypes.string.isRequired,
+  // key: PropTypes.string.isRequired,
+  // alt: PropTypes.string.isRequired,
+  // summary: PropTypes.string.isRequired,
+  // image: PropTypes.string.isRequired,
 }
 
 export const data = graphql`

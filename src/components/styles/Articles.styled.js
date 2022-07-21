@@ -10,7 +10,7 @@ import tw from "twin.macro"
 //   margin: 40px;
 //   padding: 60px;
 // `
-export const StyledArticles = styled.div`
+export const StyledArticles = styled.article`
   display: flex;
   align-items: center;
   border-radius: 5px;
@@ -25,8 +25,7 @@ export const StyledArticles = styled.div`
     ${tw`object-cover min-w-full  md:h-auto mx-auto rounded-br-xl rounded-bl-xl md:rounded-none `}
   }
   & > div {
-    flex: 1;
-    ${tw`items-center justify-center`}
+    ${tw`flex-1 flex-col flex-wrap`}
   }
 
   @media (max-width: ${({ theme }) => theme.mobile}) {

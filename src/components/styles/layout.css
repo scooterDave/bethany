@@ -1,0 +1,7 @@
+#gatsby-focus-wrapper{
+    grid-template-areas: "head"
+            "main"
+            "foot";
+    grid-template-rows: 50px 1fr 30px;
+    width: 100%;
+}
