@@ -3,8 +3,6 @@ import PropTypes from "prop-types"
 import { Link } from "gatsby"
 import { StyledArticles } from "./styles/Articles.styled"
 
-
-// const ArticlePreview = ({ title, path, image, alt, summary }) => (
 const ArticlePreview = ({ count, title, path, summary, image, alt }) => (
   <StyledArticles layout={count % 2 === 0 && "row"}>
     <div>

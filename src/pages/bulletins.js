@@ -12,11 +12,8 @@ const Bulletins = ({ data }) => {
   return (
     <Layout>
       <Seo title="Bulletins" />
-      <h1 css={tw`text-2xl text-blue_grotto bg-white`}>Bulletins</h1>
-      <ul
-        css={tw`grid grid-cols-1 gap-2 content-center`}
-      >
-        {bulletins.map(bulletin => (
+      <h1>Bulletins</h1>
+      {bulletins.map(bulletin => (
           <BulletinPreview
             description={bulletin?.node.field_bulletin[0].description}
             key={bulletin?.node.field_bulletin[0].drupal_internal__target_id}
@@ -24,19 +21,12 @@ const Bulletins = ({ data }) => {
             path={bulletin.node.path.alias}
           />
         ))}
-      </ul>
     </Layout>
   )
 }
 
 Bulletins.propTypes = {
   data: PropTypes.object.isRequired,
-    // title: PropTypes.string.isRequired,
-  // path: PropTypes.string.isRequired,
-  // key: PropTypes.string.isRequired,
-  // alt: PropTypes.string.isRequired,
-  // description: PropTypes.string.isRequired,
-  // image: PropTypes.string.isRequired,
 }
 
 export const data = graphql`

@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import { Link } from "gatsby"
 import { StyledBulletins } from "./styles/Bulletins.styled"
 
-const bulletinPreview = ({ count, title, path, summary, image, alt }) => (
+const BulletinPreview = ({ count, title, path, summary, image, alt }) => (
   <StyledBulletins layout={count % 2 === 0 && "row"}>
     <div>
       <Link to={path}>
