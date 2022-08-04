@@ -6,22 +6,17 @@ import Layout from "../components/layout"
 const BulletinTemplate = ({ data }) => {
   const bulletin = data.allNodeBulletin.nodes[0]
   let bulletin_component = (
-        <Layout>
-          <h1>{bulletin.title}</h1>
-          <p>
-            <a
-              href={
-                bulletin.relationships.field_bulletin[0].localFile.publicURL
-              }
-            >
-              {bulletin.relationships.field_bulletin[0].filename}
-            </a>
-          </p>
-        </Layout>
+    <Layout>
+      <h1>{bulletin.title}</h1>
+      <div>
+        <a href={bulletin.relationships.field_bulletin[0].localFile.publicURL}>
+          {bulletin.relationships.field_bulletin[0].filename}
+        </a>
+      </div>
+    </Layout>
   )
   return bulletin_component
 }
-
 
 export default BulletinTemplate
 export const query = graphql`
