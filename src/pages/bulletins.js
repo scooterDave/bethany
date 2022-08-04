@@ -3,50 +3,54 @@ import PropTypes from "prop-types"
 import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
-import SEO from "../components/seo"
-import ArticlePreview from "../components/articlePreview"
+import Seo from "../components/seo"
+import BulletinPreview from "../components/bulletinPreview"
 
-const Articles = ({ data }) => {
-  const articles = data.allNodeArticle.edges
-
+const Bulletins = ({ data }) => {
+  const bulletins = data.allNodeBulletin.edges
+  
   return (
     <Layout>
-      <SEO title="Articles" />
-      <h1>Articles</h1>
-      {articles.map(article => (
-        <ArticlePreview
-          count={article.node.drupal_internal__nid}
-          id={article.node.drupal_internal__nid}
-          title={article.node.title}
-          path={article.node.path.alias}
-          summary={
-            article.node.body.summary
-              ? article.node.body.summary
-              : article.node.body.processed.substring(0, 300)
-          }
-        />
-      ))}
+      <Seo title="Bulletins" />
+      <h1 css={tw`text-2xl text-blue_grotto bg-white`}>Bulletins</h1>
+      <ul
+        css={tw`grid grid-cols-1 gap-2 content-center`}
+      >
+        {bulletins.map(bulletin => (
+          <BulletinPreview
+            description={bulletin?.node.field_bulletin[0].description}
+            key={bulletin?.node.field_bulletin[0].drupal_internal__target_id}
+            title={bulletin.node.title}
+            path={bulletin.node.path.alias}
+          />
+        ))}
+      </ul>
     </Layout>
   )
 }
 
-Articles.propTypes = {
+Bulletins.propTypes = {
   data: PropTypes.object.isRequired,
+    // title: PropTypes.string.isRequired,
+  // path: PropTypes.string.isRequired,
+  // key: PropTypes.string.isRequired,
+  // alt: PropTypes.string.isRequired,
+  // description: PropTypes.string.isRequired,
+  // image: PropTypes.string.isRequired,
 }
 
 export const data = graphql`
   {
-    allNodeArticle(sort: { fields: created, order: DESC }, limit: 10) {
+    allNodeBulletin(sort: { fields: created, order: DESC }, limit: 10) {
       edges {
         node {
-          id
-          drupal_internal__nid
+          field_bulletin {
+            description
+            drupal_internal__target_id
+          }
           title
           path {
             alias
-          }
-          body {
-            processed
           }
         }
       }
@@ -54,4 +58,4 @@ export const data = graphql`
   }
 `
 
-export default Articles
+export default Bulletins
