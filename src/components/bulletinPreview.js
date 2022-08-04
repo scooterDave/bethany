@@ -1,11 +1,10 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
-import { StyledArticles } from "./styles/Bulletins.styled"
-
+import { StyledBulletins } from "./styles/Bulletins.styled"
 
 const bulletinPreview = ({ count, title, path, summary, image, alt }) => (
-  <StyledArticles layout={count % 2 === 0 && "row"}>
+  <StyledBulletins layout={count % 2 === 0 && "row"}>
     <div>
       <Link to={path}>
         <h2>{title}</h2>
@@ -15,15 +14,15 @@ const bulletinPreview = ({ count, title, path, summary, image, alt }) => (
     <div>
       <img src={image} alt={alt} />
     </div>
-  </StyledArticles>
+  </StyledBulletins>
 )
 
- ArticlePreview.propTypes = {
-   title: PropTypes.string.isRequired,
-   path: PropTypes.string.isRequired,
-    key: PropTypes.number.isRequired,
-   alt: PropTypes.string.isRequired,
+BulletinPreview.propTypes = {
+  title: PropTypes.string.isRequired,
+  path: PropTypes.string.isRequired,
+  key: PropTypes.number.isRequired,
+  alt: PropTypes.string.isRequired,
   summary: PropTypes.string.isRequired,
- }
+}
 
-export default ArticlePreview
+export default BulletinPreview
