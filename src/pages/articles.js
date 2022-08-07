@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 import ArticlePreview from "../components/articlePreview"
 
 const Articles = ({ data }) => {
@@ -11,7 +11,7 @@ const Articles = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title="Articles" />
+      <Seo title="Articles" />
       <h1>Articles</h1>
       {articles.map(article => (
         <ArticlePreview
