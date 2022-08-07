@@ -21,7 +21,7 @@ exports.createPages = async ({ actions, graphql }) => {
   paginate({
     createPage,
     items: articles.data.allNodeArticle.nodes,
-    itemsPerPage: 10,
+    itemsPerPage: 3,
     pathPrefix: "/all-articles",
     component: path.resolve(`src/templates/all-articles.js`),
   });
