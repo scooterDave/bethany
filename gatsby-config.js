@@ -13,7 +13,7 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-    '@raygesualdo/gatsby-plugin-babel-styled-components',
+    `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
