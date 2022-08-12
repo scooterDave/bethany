@@ -5,7 +5,7 @@ module.exports = {
   siteMetadata: {
     title: `Bethany Presbyterian`,
     description: `Site under development`,
-    author: `@gatsbyjs`,
+    author: `David Ochoa`,
     siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
   },
   flags: {
