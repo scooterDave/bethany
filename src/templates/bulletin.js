@@ -20,12 +20,10 @@ const BulletinTemplate = ({ data }) => {
 
 export default BulletinTemplate
 export const query = graphql`
-  query ($BulletinId: String!, $skip: Int!, $limit: Int!) {
+  query ($BulletinId: String!,) {
     allNodeBulletin(
       filter: { id: { eq: $BulletinId } }
       sort: { fields: created, order: DESC }
-      skip: $skip
-      limit: $limit
     ) {
       nodes {
         id
