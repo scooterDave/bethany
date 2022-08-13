@@ -2,14 +2,13 @@ import { graphql } from "gatsby"
 import React from "react"
 // import PropTypes from "prop-types"
 import Layout from "../components/layout"
-import { GatsbyImage } from "gatsby-plugin-image"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import ReactHtmlParser from "react-html-parser"
 
 
 const ArticleTemplate = ({ data }) => {
   const article = data.allNodeArticle.edges[0].node
 
-  //  let image = (<React.Fragment/>);
 
   let article_body_elements = new ReactHtmlParser(article.body.processed, {
     transform: function transform(node) {
@@ -19,12 +18,13 @@ const ArticleTemplate = ({ data }) => {
         let cName = node.attribs["class"]
         let key = article.id
         let i = 0
+        var image = getImage(
+          data.allFileFile.edges[i].node.localFile.childImageSharp
+            .gatsbyImageData
+        )
 
         for (i = 0; i < data.allFileFile.edges.length; i++) {
-          // const image = getImage(
-          //   data.allFileFile.edges[i].node.localFile.childImageSharp
-          //     .gatsbyImageData
-          // )
+          
           if (
             data.allFileFile.edges[i].node.drupal_id === uuid &&
             data.allFileFile.edges[i].node.localFile
@@ -32,9 +32,7 @@ const ArticleTemplate = ({ data }) => {
             return (
               <GatsbyImage
                 key={key}
-                image={
-                  data.allFileFile.edges[i].node.localFile.childImageSharp.gatsbyImageData
-                }
+                image={image}
                 alt={alt}
                 className={cName}
               />

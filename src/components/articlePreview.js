@@ -20,9 +20,10 @@ const ArticlePreview = ({ count, title, path, summary, image, alt }) => (
  ArticlePreview.propTypes = {
    title: PropTypes.string.isRequired,
    path: PropTypes.string.isRequired,
-    key: PropTypes.number.isRequired,
+   image: PropTypes.string.isRequired,
+   key: PropTypes.number.isRequired,
    alt: PropTypes.string.isRequired,
-  summary: PropTypes.string.isRequired,
+   summary: PropTypes.string.isRequired,
  }
 
 export default ArticlePreview
